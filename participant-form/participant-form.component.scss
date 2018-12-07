@@ -1,0 +1,67 @@
+/*-------------------------------------------------------
+                  PARTICIPANT FORM
+-------------------------------------------------------*/
+.cp-form-listing-div{
+	padding: 25px;
+	margin-bottom: 25px;
+	min-height: 100px;
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+  
+.cp-form-container{
+	vertical-align: center;
+	margin-top: 20px;
+}
+.cp-form-container p{
+	color: #f76475;
+	font-size: 28px;
+	font-family: CeraGR;
+}
+.cp-note{
+  text-align: left;
+  color: red;
+}
+.btn, .btn:active {
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px ;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 16px;
+	background: #9565b3;
+	margin-top: -1px;
+	font-weight: bold ;
+	padding: 3px 10px 3px 10px;
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+}
+ 
+.btn:hover , .btn:focus {
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #fff;
+	font-size: 16px;
+	background: #583071;;
+	margin-top: -1px;
+	font-weight: bold;
+	padding: 3px 10px 3px 10px;
+	text-decoration: none;
+	outline: none ;
+	box-shadow: none;
+}
+.m-l-90{
+	margin-top: -59px !important;
+	margin-left: 90px;
+}
+
+.category-table tr td{
+	border-top: none !important;
+	font-size: 17px; 
+	font-family: CeraGR;
+}
+.container {
+  max-width: 1560px !important;
+}

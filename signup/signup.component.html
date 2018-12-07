@@ -1,0 +1,280 @@
+<!-- <div class="login-page" [@routerTransition]>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+      <h1>Register</h1>
+      <form #sign_up="ngForm" (ngSubmit)="signupRequest($event)">
+        <div class="form-content">          
+
+          <div class="form-group">
+            <input type="text" class="form-control input-underline input-lg" id="email" placeholder="Email" ngModel required minlength="8" #email="ngModel" name="email" pattern="^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$" autocomplete="off">
+
+            <div *ngIf="email.touched">
+
+              <div *ngIf="email.errors?.required" class="calert alert-danger">
+                Email is required
+              </div>
+              <div *ngIf="email.errors?.pattern" class="calert alert-danger">
+                <i>Please enter valid Email</i>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control input-underline input-lg" id="country" placeholder="Country" ngModel required #country="ngModel" name="country" autocomplete="off">
+            <div *ngIf="country.touched">
+              <div *ngIf="country.errors?.required" class="calert alert-danger">
+                Country is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control input-underline input-lg" id="state" placeholder="State" ngModel required #state="ngModel" name="state" autocomplete="off">
+            <div *ngIf="state.touched">
+              <div *ngIf="state.errors?.required" class="calert alert-danger">
+                State is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control input-underline input-lg" id="city" placeholder="City" ngModel required #city="ngModel" name="city" autocomplete="off">
+            <div *ngIf="city.touched">
+              <div *ngIf="city.errors?.required" class="calert alert-danger">
+                City is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <input type="text" class="form-control input-underline input-lg" id="code" placeholder="+91" ngModel required minlength="3" #code="ngModel" name="code" autocomplete="off">
+                <div *ngIf="code.touched">
+                  <div *ngIf="code.errors?.required" class="calert alert-danger">
+                    Country Code is required
+                  </div>
+                  <div *ngIf="code.errors?.minlength">
+                    Country Code must be at least 3 characters long
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <input type="text" class="form-control input-underline input-lg" id="mobile_no" placeholder="Phone Number" ngModel required minlength="8" #phone="ngModel" name="phone" pattern="[0-9]+" autocomplete="off">
+                <div *ngIf="phone.touched">
+                  <div *ngIf="phone.errors?.required" class="calert alert-danger">
+                    Phone Number is required
+                  </div>
+                  <div *ngIf="phone.errors?.minlength" class="calert alert-danger">
+                    Phone Number must be at least 8 characters long
+                  </div>
+                  <div *ngIf="phone.errors?.pattern" class="calert alert-danger">
+                    <i>Please enter valid Phone Number</i>
+                  </div>
+                </div>
+              </div>  
+            </div>  
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control input-underline input-lg" id="password" placeholder="Password" ngModel required minlength="8" #password="ngModel" name="password" autocomplete="off">
+
+            <div *ngIf="password.touched">
+
+              <div *ngIf="password.errors?.required" class="calert alert-danger">
+                Password is required
+              </div>
+              <div *ngIf="password.errors?.minlength" class="calert alert-danger">
+                Password must be at least 8 characters long
+              </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control input-underline input-lg" id="confirm_password" placeholder="Confirm Password" ngModel required minlength="8" validateEqual="password" #cpassword="ngModel" name="cpassword" autocomplete="off">
+
+            <div *ngIf="cpassword.touched">
+
+              <div *ngIf="cpassword.errors?.required" class="calert alert-danger">
+                Confirm Password is required
+              </div>
+              <div *ngIf="cpassword.errors?.minlength" class="calert alert-danger">
+                Confirm Password must be at least 8 characters long
+              </div>
+              <div [hidden]="cpassword.valid" class="calert alert-danger">
+                <i>Confirm password does not mached with password</i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+         <button type="submit" class="btn rounded-btn" id="sign-up"  [disabled]="sign_up.invalid">Register</button>&nbsp;
+        <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+     <!-- <div class="form-group">
+            <select class="form-control" prompt="Select a Country">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" prompt="Select a State">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" prompt="Select a City">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div> -->
+
+
+          
+<section id="login" class="login" [@routerTransition]>
+  <div class="container grey margin-top">
+    <div class="login-form justify-content-md-center">
+      <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+      <h2 class="login-tab">Register</h2>
+      <form #sign_up="ngForm" (ngSubmit)="signupRequest($event)">
+        <div class="form-group">
+          <input type="text" class="form-control input-underline input-lg" id="email" placeholder="Email" ngModel required minlength="8" #email="ngModel" name="email" pattern="^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$" autocomplete="off">
+
+          <div *ngIf="email.touched">
+
+            <div *ngIf="email.errors?.required" class="calert alert-danger">
+              Email is required
+            </div>
+            <div *ngIf="email.errors?.pattern" class="calert alert-danger">
+              <i>Please enter valid Email</i>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control input-underline input-lg" id="country" placeholder="Country" ngModel required #country="ngModel" name="country" pattern="[A-Za-z]+" autocomplete="off">
+          <div *ngIf="country.touched">
+            <div *ngIf="country.errors?.required" class="calert alert-danger">
+              Country is required
+            </div>
+            <div *ngIf="country.errors?.pattern" class="calert alert-danger">
+              <i>Please enter valid Country</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control input-underline input-lg" id="state" placeholder="State" ngModel required #state="ngModel" name="state" pattern="[A-Za-z]+" autocomplete="off">
+          <div *ngIf="state.touched">
+            <div *ngIf="state.errors?.required" class="calert alert-danger">
+              State is required
+            </div>
+            <div *ngIf="state.errors?.pattern" class="calert alert-danger">
+              <i>Please enter valid State</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control input-underline input-lg" id="city" placeholder="City" ngModel required #city="ngModel" name="city" pattern="[A-Za-z]+" autocomplete="off">
+          <div *ngIf="city.touched">
+            <div *ngIf="city.errors?.required" class="calert alert-danger">
+              City is required
+            </div>
+            <div *ngIf="city.errors?.pattern" class="calert alert-danger">
+              <i>Please enter valid City</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-3">
+              <input type="text" class="form-control input-underline input-lg" id="code" placeholder="+91" ngModel required minlength="3" #code="ngModel" name="code" pattern="[0-9]+" autocomplete="off">
+              <div *ngIf="code.touched">
+                <div *ngIf="code.errors?.required" class="calert alert-danger">
+                  Country Code is required
+                </div>
+                <div *ngIf="code.errors?.minlength">
+                  Country Code must be at least 3 characters long
+                </div>
+                <div *ngIf="code.errors?.pattern" class="calert alert-danger">
+                  <i>Please enter valid Country-Code</i>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <input type="text" class="form-control input-underline input-lg" id="mobile_no" placeholder="Phone Number" ngModel required minlength="8" #phone="ngModel" name="phone" pattern="[0-9]+" autocomplete="off">
+              <div *ngIf="phone.touched">
+                <div *ngIf="phone.errors?.required" class="calert alert-danger">
+                  Phone Number is required
+                </div>
+                <div *ngIf="phone.errors?.minlength" class="calert alert-danger">
+                  Phone Number must be at least 8 characters long
+                </div>
+                <div *ngIf="phone.errors?.pattern" class="calert alert-danger">
+                  <i>Please enter valid Phone Number</i>
+                </div>
+              </div>
+            </div>  
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control input-underline input-lg" id="password" placeholder="Password" ngModel required minlength="8" #password="ngModel" name="password" autocomplete="off">
+
+          <div *ngIf="password.touched">
+
+            <div *ngIf="password.errors?.required" class="calert alert-danger">
+              Password is required
+            </div>
+            <div *ngIf="password.errors?.minlength" class="calert alert-danger">
+              Password must be at least 8 characters long
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-underline input-lg" id="confirm_password" placeholder="Confirm Password" ngModel required minlength="8" validateEqual="password" #cpassword="ngModel" name="cpassword" autocomplete="off">
+
+          <div *ngIf="cpassword.touched">
+
+            <div *ngIf="cpassword.errors?.required" class="calert alert-danger">
+              Confirm Password is required
+            </div>
+            <div *ngIf="cpassword.errors?.minlength" class="calert alert-danger">
+              Confirm Password must be at least 8 characters long
+            </div>
+            <div [hidden]="cpassword.valid" class="calert alert-danger">
+              <i>Confirm password does not mached with password</i>
+            </div>
+
+          </div>
+        </div>
+        <button type="submit" class="btn rounded-btn" id="sign-up"  [disabled]="sign_up.invalid">Register</button>&nbsp;
+        <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+      </form>
+      <label>Note: Please sign up with valid Email address.</label>   
+    </div>
+  </div> 
+</section>
+         

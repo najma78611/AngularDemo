@@ -1,0 +1,186 @@
+<!-- Page Content -->
+<div class="container pf-container">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row pf-banner" >
+				<img [src]="cover_image" class="pf-banner-img" alt="user image" *ngIf="!isImageLoading; else noCoverImageFound">
+				<ng-template #noCoverImageFound>
+					<img src="assets/images/news-banner.png" alt="Fallbackimage" class="pf-banner-img">
+				</ng-template>
+      	<!-- <img src="assets/images/news-banner.png" class="pf-banner-img" alt="user image"> -->
+        <div class="col-12">
+          <a href="#" class="btn-share">SHARE PROFILE
+            <i class="fa fa-share"></i>
+          </a>
+        </div>
+      </div>
+  
+		  <div class="row">
+		    <div class="col-lg-4 col-md-12 col-sm-12">
+		      <div class="user-profile">
+		        <div class="user-container">
+		          <img [src]="profile_image" class="user-image" alt="user image" *ngIf="!isImageLoading; else noImageFound">
+							<ng-template #noImageFound>
+								<img src="assets/images/new-profile.png" alt="Fallbackimage" class="user-image">
+							</ng-template>
+							<h4 *ngIf="!isImageLoading; else noNameFound">{{first_name}}</h4>
+							<ng-template #noNameFound>
+								<h4>User Name</h4>
+							</ng-template>
+		        </div>
+		        <div class="user-details">
+		          <h5>ABOUT</h5>
+							<p *ngIf="!aboutUsStatus; else noAboutUs">{{about_us}}</p>
+							<ng-template #noAboutUs>
+                <p></p>
+							</ng-template>
+		          <div class="profile-edit-btn" *ngIf="edit_profile_status">
+		            <a class="btn" [routerLink]="['/edit-user-profile']">Edit Profile
+		              <i class="fa fa-edit"></i>
+		            </a>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="col-lg-8 col-md-12 col-sm-12">
+		      <div class="row user-stat">
+		        <div class="col-lg-4 col-md-4 col-sm-8">
+		          <p>LIKES</p>
+		          <span>{{likes}}</span>
+		        </div>              
+		        <div class="col-lg-4 col-md-4 col-sm-8">
+		          <p>COMMENTS</p>
+		          <span>{{comments}}</span>
+		        </div>
+		        <div class="col-lg-4 col-md-4 col-sm-8">
+		          <p>PARTICIPATIONS</p>
+		          <span>{{competition_count}}</span>
+		        </div>              
+		      </div>
+		      
+		      <div class="profile-gap"></div>
+
+		      <div class="row uploaded-images images-position" >
+		        <div class="col-lg-6 col-md-6 col-sm-6" *ngFor="let participant of participant_image">
+		          <div class="img-card">
+		            <img src='{{image_url+participant.image_url}}' class="profile-cart-img" alt="">
+		            <div class="card-text">
+									<span>
+										<i class="fas fa-heart likes-icon" id={{participant.id}} (click)="likeRequest(participant.id, $event)"></i>
+									</span>
+									<span></span>
+									<span>
+										<img src="assets/images/icon/chat.svg" (click)="commentModal($event, participant.id)" class="chat-icon" alt="search">
+									</span>
+								</div>
+							</div>
+							<div class="modal fade profile-for-guest hola page-reload" id='user-profile{{participant.id}}' tabindex="-1" role="dialog" aria-labelledby="LargeModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="comments">           
+											<div class="modal-body">
+												<div class="d-md-flex flex-md-fill px-1">
+													<!-- <div class="d-flex justify-content-center mr-md-5 mt-md-5 mt-4"> -->
+													<div class="d-flex justify-content-center">
+														<img src='{{image_url+participant.image_url}}' class="card-img-100 z-depth-1 rounded-circle comment-img" alt="user image">
+													</div>
+													<form #comment="ngForm" ng-form="myform" class="form-size" (ngSubmit)="commentRequest($event)">
+														<div class="form-group">
+															<div class="md-form w-100">
+																<textarea id="description" name="description" #description="ngModel" ngModel  class="form-control custom-control"  style="resize:none" placeholder="* Write something here..." required></textarea>														
+																<div *ngIf="description.touched">
+																	<div *ngIf="description.errors?.required" class="calert alert-danger">
+																		<i>Please enter your comment</i>
+																	</div>          
+																</div>
+															</div>
+															
+															<input type="hidden" name="participant_id" id="participant_id" class="form-control" [ngModel]="participant_id">
+														</div>
+														<div class="comment-btn-position">
+															<button type="submit" class="btn" id="comment" [disabled]="comment.invalid">Submit</button>
+														</div>
+													</form>
+													
+												</div>
+												<!-- <div class="d-flex justify-content-center mr-md-5 mt-md-5 mt-4">
+													<img class="card-img-100 z-depth-1 rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/img (32).jpg" alt="avatar">
+												</div> -->
+												<!-- <form #comment="ngForm" ng-form="myform" (ngSubmit)="commentRequest($event)">
+													<div class="form-group">
+														<textarea id="description" name="description" #description="ngModel" ngModel  class="form-control custom-control"  style="resize:none" placeholder="* Put your Comment here..." required></textarea>														
+														<div *ngIf="description.touched">
+															<div *ngIf="description.errors?.required" class="calert alert-danger">
+																<i>Please enter your comment</i>
+															</div>          
+														</div>
+														<input type="hidden" name="participant_id" id="participant_id" class="form-control" [ngModel]="participant_id">
+													</div>
+													<div class="comment-btn-position">
+														<button type="submit" class="btn" id="comment" [disabled]="comment.invalid">Submit</button>
+													</div>
+												</form> -->
+											</div>  
+										</div>
+									</div>
+								</div>
+							</div>
+		        </div>		                
+		      </div>
+		    </div>
+		  </div>
+		</div>  
+    <div class="col-lg-3 col-md-12 col-sm-12">
+      <div class="other-users">
+        <h4>OTHER USERS LIST</h4>
+        <ul class="user-list" *ngFor="let user of other_users" >
+          <li class="user-list-item" *ngIf="user[3] != null">						
+						<img [src]="user[3]!= null ? image_url+user[3] : 'assets/images/new-profile.png' " alt="user-avatar">
+						<div class="user-name">
+							<a [routerLink]="['/user-profile', user[0]]" (click)="check_user(user[0])">
+								{{user[1]  | titlecase}} {{user[2]  | titlecase}}
+							</a>	 
+						</div>						            
+          </li>
+         </ul>         
+      </div>
+    </div>
+  </div>
+
+	<div class="row up-comming-section">
+    <div class="col-md-12">
+      <p class="heading">UPCOMING COMPETITIONS
+      </p>
+      <div class="row" *ngIf="!isUpContest; else noUpContestFound">
+        <div class="col-md-4" *ngFor="let up_contest of upcoming_contests">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-contents competition-box">
+                <p class="card-title">{{up_contest.contest_name}}</p>
+                <p class="card-text competition-desc-height">{{up_contest.description}}</p>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noUpContestFound>
+        <div class="row">
+          <div class="container competitions-note-conatiner">
+            <p class="contest-brief">Watch this space for all the exciting upcoming contests and categories!</p>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+<!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/pace/pace.min.js"></script>
+<script data-pace-options='{ "ajax": false }' src='vendor/pace/pace.min.js'></script>
+

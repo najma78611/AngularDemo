@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 cp-form-container cp-form-listing-div">
+      <p>PARTICIPANT FORM</p><br>
+      <div class="container">
+        <h6 class="cp-note">Note: Do the Payment first otherwise you will not be able to submit the form. While proceeding Payment, do not refresh or exit from the page.</h6>
+        <form #participant="ngForm" ng-form="myform" (ngSubmit)="participantRequest($event)">
+          <div class="form-group">
+            <label>Competition: {{competition_name}} &nbsp;</label>
+          </div>
+          
+          <div class="form-group">
+            <label>*Image</label>
+            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput required>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <input type="textarea" name="description" id="description" class="form-control"  maxlength="50" placeholder="* Description" #description="ngModel" ngModel required>
+          </div>
+
+          <div class="form-group">
+            <label>Caption</label>
+            <input type="text" name="caption" id="caption" class="form-control"  maxlength="50" placeholder="* Caption" #caption="ngModel" ngModel required>
+          </div>
+
+          <div>
+            <div *ngIf="!payment_status">
+              <strong>Click for Payment</strong>
+              <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+              <div id="paypal-checkout-btn" class="m-l-10"></div> 
+            </div>  
+          </div><br>
+          <button type="submit" class="btn" id="sign-up" [disabled]="participant.invalid">Submit</button>
+        </form>
+        <button (click)="goBack()" class="btn m-l-90">BACK</button>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+    
+  </div>
+</div>

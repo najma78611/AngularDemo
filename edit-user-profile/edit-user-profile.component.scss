@@ -1,0 +1,118 @@
+.vertical-menu {
+  width: 100%;
+  margin-top: 17%;
+  margin-bottom: 17%;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+.vertical-menu a.active {
+  background-color: #f76475;
+  color: white;
+}
+
+.active {
+  color: #ed1a4e;
+}
+
+.edit-login-form {
+  font-family: CeraGR;
+  padding-bottom: 4%;
+  background-image: url('/assets/images/11.jpg');
+  padding-left: 7%;
+  padding-right: 7%;
+  width: 80%;
+  margin-bottom: 5%;
+  border-radius: 7px;
+ }
+
+ .edit-login-tab {
+  margin-top: 8%;
+  padding-top: 8%;
+  font-family: CeraGRBold;
+  padding-bottom: 34px;
+  font-size: 119%;
+  font-weight: bold;  
+ }
+
+ .sign-link, .sign-link:hover, .sign-link:active{
+  font-size: 18px;
+  color: #ff617b;
+  font-family: CeraGR;
+  margin-left: 10px;
+}
+
+.btn, .btn:active {
+ -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px ;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #9565b3;
+  margin-top: -1px;
+  font-weight: bold ;
+  padding: 3px 10px 3px 10px;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn:hover , .btn:focus {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #fff;
+  font-size: 16px;
+  background: #583071;;
+  margin-top: -1px;
+  font-weight: bold;
+  padding: 3px 10px 3px 10px;
+  text-decoration: none;
+  outline: none ;
+  box-shadow: none;
+}
+/*flash*/
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: center;
+}
+.back-btn-position {
+  float: right;
+  position: relative;
+  bottom: 47px;
+}
+@media (max-width: 360px){
+  .back-btn-position {
+    float: right;
+    position: relative;
+    bottom: 42px;
+  }
+  .btn, .btn:active {
+    font-size: 13px;
+  }
+}
+.container {
+  max-width: 1560px !important;
+}

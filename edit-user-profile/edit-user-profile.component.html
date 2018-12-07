@@ -1,0 +1,165 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="vertical-menu">
+      	<a class="active" [routerLink]="['/edit-user-profile']">Change Profile
+		    </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div id="login" class="login">
+        <div class="container grey">
+          <div class="edit-login-form">
+            <h2 class="edit-login-tab">Change Profile</h2>
+            <form #edit_profile="ngForm" ng-form="myform" (ngSubmit)="editProfileRequest($event)">
+              <div class="form-group row">
+                <div class="col-md-6">
+                	<label class="sign-link">First Name</label>
+                	<input type="text" name="fname" id="fname" class="form-control input-underline input-lg"  maxlength="60" placeholder="* First Name" #fname="ngModel" [(ngModel)]="user == null ? '' :user.first_name" required>
+			            <div *ngIf="fname.touched">
+			              <div *ngIf="fname.errors?.required" class="calert alert-danger">
+			                <i>Please enter First Name</i>
+			              </div>          
+			            </div>
+                </div>
+                <div class="col-md-6">
+                	<label class="sign-link">Last Name</label>
+                	<input type="text" name="lname" id="lname" class="form-control input-underline input-lg"  maxlength="60" placeholder="* Last Name" #lname="ngModel"  [(ngModel)]="user == null ? '' :user.last_name" required>
+			            <div *ngIf="lname.touched">
+			              <div *ngIf="lname.errors?.required" class="calert alert-danger">
+			                <i>Please enter Last Name</i>
+			              </div>          
+			            </div>            
+                </div>
+              </div>
+
+              <div class="form-group">
+              	<label class="sign-link">Email-Id</label>
+              	<input type="text" name="email" id="email" class="form-control input-underline input-lg"  placeholder="* Email" #email="ngModel" pattern="^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$"  [(ngModel)]="user == null ? '' :user.email" required>
+		            <div *ngIf="email.touched">
+		              <div *ngIf="email.errors?.required" class="calert alert-danger">
+		                <i>Please enter Email</i>
+		              </div>
+		              <div *ngIf="email.errors?.pattern" class="calert alert-danger">
+		                <i>Please enter valid Email</i>
+		              </div>          
+		            </div>
+              </div>
+
+              <div class="form-group">
+              	<label class="sign-link">Country</label>
+		            <input type="text" class="form-control input-underline input-lg" id="country" placeholder="* Country"  [(ngModel)]="user == null ? '' :user.country" required #country="ngModel" name="country">
+		            <div *ngIf="country.touched">
+		              <div *ngIf="country.errors?.required" class="calert alert-danger">
+		                Country is required
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="form-group">
+		          	<label class="sign-link">State</label>
+		            <input type="text" class="form-control input-underline input-lg" id="state" placeholder="* State"  [(ngModel)]="user == null ? '' :user.state" required #state="ngModel" name="state">
+		            <div *ngIf="state.touched">
+		              <div *ngIf="state.errors?.required" class="calert alert-danger">
+		                State is required
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="form-group">
+		          	<label class="sign-link">City</label>
+		            <input type="text" class="form-control input-underline input-lg" id="city" placeholder="* City"  [(ngModel)]="user == null ? '' :user.city" required #city="ngModel" name="city">
+		            <div *ngIf="city.touched">
+		              <div *ngIf="city.errors?.required" class="calert alert-danger">
+		                City is required
+		              </div>
+		            </div>
+		          </div>
+
+              <div class="form-group">
+		            <div class="row">
+		              <div class="col-lg-3">
+		                <input type="text" class="form-control input-underline input-lg" id="code" placeholder="+91"  [(ngModel)]="user == null ? '' :user.country_code" required minlength="3" #code="ngModel" name="code">
+		                <div *ngIf="code.touched">
+		                  <div *ngIf="code.errors?.required" class="calert alert-danger">
+		                    Country Code is required
+		                  </div>
+		                  <div *ngIf="code.errors?.minlength">
+		                    Country Code must be at least 3 characters long
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="col-lg-9">
+		                <input type="text" class="form-control input-underline input-lg" id="mobile_no" placeholder="* Phone Number"  [(ngModel)]="user == null ? '' :user.mobile_no" required minlength="8" #phone="ngModel" name="phone">
+		                <div *ngIf="phone.touched">
+		                  <div *ngIf="phone.errors?.required" class="calert alert-danger">
+		                    Phone Number is required
+		                  </div>
+		                  <div *ngIf="phone.errors?.minlength">
+		                    Phone Number must be at least 8 characters long
+		                  </div>
+		                </div>
+		              </div>  
+		            </div>  
+		          </div>
+
+              <div class="form-group">
+              	<label class="sign-link">About me</label>
+              	<input type="textarea" name="aboutme" id="aboutme" class="form-control input-underline input-lg"  maxlength="250" placeholder="* About" #aboutme="ngModel" [(ngModel)]="user == null ? '' :user.about_us"l>
+		            <div *ngIf="aboutme.touched">
+		              <div *ngIf="aboutme.errors?.required" class="calert alert-danger">
+		                <i>Please enter Last Name</i>
+		              </div>          
+		            </div>
+              </div>  
+
+              <div class="form-group">
+              	<label class="sign-link">Profile Picture </label>
+								<input type="file" id="avatar" (change)="onFileChange($event)">
+								<!-- <i>(Please enter image less than 1 MB.)</i> -->
+								<!-- <div *ngIf="_user_img !== null" class="alert-success">
+                  <i>{{_user_img}}</i>
+                </div>
+                <br> -->
+                <div *ngIf="_user_img_type_error !== null" class="alert-error">
+                  <i>{{_user_img_type_error}}</i>
+                </div>
+                <br>
+                <div *ngIf="_user_img_size_error !== null" class="alert-error">
+                  <i>{{_user_img_size_error}}</i>
+                </div>
+              </div> 
+              <div class="form-group">
+              	<label class="sign-link">Cover Picture </label>
+								<input type="file" id="avatar2" (change)="onFileChange2($event)">               
+								<!-- <i>(Please enter image less than 1 MB.)</i> -->
+								<!-- <div *ngIf="_user_img !== null" class="alert-success">
+									<i>{{_cover_user_img}}</i>
+								</div>
+								<br> -->
+								<div *ngIf="_user_img_type_error !== null" class="alert-error">
+									<i>{{_cover_img_type_error}}</i>
+								</div>
+								<br>
+								<div *ngIf="_user_img_size_error !== null" class="alert-error">
+									<i>{{_cover_img_size_error}}</i>
+								</div>
+              </div>
+
+              <div class="form-group">
+								<div class="row">
+									<div class="col-sm-offset-4 col-sm-4">
+										<button type="submit" class="btn" id="sign-up"  [disabled]="edit_profile.invalid">UPDATE</button>
+									</div>
+								</div>
+              </div>
+						</form>
+						<div class="back-btn-position">
+							<button (click)="goBack()"  class="btn">BACK</button>
+						</div>  
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
